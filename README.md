@@ -3,4 +3,8 @@
 ### 在新的电脑环境下搭建最新的angular + 最新的ng-zorro
 1. 创建项目：ng new ng-zorro-action
 2. 安装ng-zorro-antd
-3. 
+3. 测试ng-zorro
+### 新建新项目必须要改动的点
+1. ng-zorro使用less作为样式语言
+2. 提取core模块
+3. 提取shared模块
