@@ -1,24 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
-import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgZorroAntdModule} from 'ng-zorro-antd';
+import {PreloadAllModules, RouterModule} from '@angular/router';
+import {appRoutes} from './app-route';
+import {CoreModule} from './core/core.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NgZorroAntdModule.forRoot()
+    CoreModule,
+    RouterModule.forRoot(appRoutes, {
+      useHash: true,
+      preloadingStrategy: PreloadAllModules
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

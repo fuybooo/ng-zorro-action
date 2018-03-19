@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  isStatic: true,
+  apiPath: '',
+  apiPathChangeable: true,
+  deployPath: '',
 };
