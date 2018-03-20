@@ -16,8 +16,9 @@ export interface HttpRes {
  * 全局的localStorage key
  */
 const projectPrefix = 'XXX';
-export const userInfoKey = projectPrefix + '_userInfo_';
+export const userInfoKey = projectPrefix + '_userInfoKey_';
 export const apiPathKey = projectPrefix + '_apiPathKey_';
+export const loginInfoKey = projectPrefix + '_loginInfoKey_';
 /**
  * 全局的正则表达式
  */

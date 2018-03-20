@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {apiPathKey} from '../shared/shared.model';
+import {urls} from './urls.model';
 
 @Injectable()
 export class UtilService {
@@ -12,16 +13,16 @@ export class UtilService {
 
   /**
    * 获取请求的url
-   * @param url
+   * @param urlKey
    * @returns {string}
    */
-  static getUrl(url) {
+  static getUrl(urlKey) {
     let path = environment.apiPath;
     const localStorage_apiPath = localStorage.getItem(apiPathKey);
     if (environment.apiPathChangeable && localStorage && localStorage_apiPath) {
       environment.apiPath = path = localStorage_apiPath;
     }
-    return environment.isStatic ? (environment.deployPath + '/assets/mock' + url + '.json') : path + url + '/';
+    return environment.isStatic ? (environment.deployPath + '/assets/mock' + urls[urlKey] + '.json') : (path + urls[urlKey] + '/');
   }
 
   /**

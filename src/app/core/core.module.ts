@@ -5,6 +5,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgZorroAntdModule, NZ_MESSAGE_CONFIG} from 'ng-zorro-antd';
 import {HttpInterceptorService} from './http-interceptor.service';
+import {CoreService} from './core.service';
+import {MessageService} from './message.service';
+import {ModalService} from './modal.service';
+import {UtilService} from './util.service';
+import {UserService} from '../main/user/user.service';
+import {LoginService} from '../login/login.service';
+import {AuthGuardService} from '../shared/guard/auth-guard.service';
 
 @NgModule({
   imports: [
@@ -22,13 +29,13 @@ import {HttpInterceptorService} from './http-interceptor.service';
     // http拦截器
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
     // 必要的全局服务
-    // CoreService,
-    // MessageService,
-    // ModalService,
-    // UtilService,
-    // UserService,
-    // LoginService,
-    // AuthGuardService,
+    CoreService,
+    MessageService,
+    ModalService,
+    UtilService,
+    UserService,
+    LoginService,
+    AuthGuardService,
   ]
 })
 export class CoreModule { }

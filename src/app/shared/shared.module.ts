@@ -4,6 +4,7 @@ import {TableComponent} from './component/table/table.component';
 import {NgZorroAntdModule} from 'ng-zorro-antd';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ButtonClickDirective} from './directive/button-click.directive';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   ],
   declarations: [
     TableComponent,
+    ButtonClickDirective,
   ],
   exports: [
     // 官方模块
