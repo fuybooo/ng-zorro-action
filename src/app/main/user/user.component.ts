@@ -11,10 +11,34 @@ import {CoreService} from '../../core/core.service';
   styleUrls: ['./user.component.less']
 })
 export class UserComponent implements OnInit {
-  params = {
-    search: ''
-  };
-  modal;
+  dataSet = [
+    {
+      abc: 'a',
+      def: 'b'
+    },
+    {
+      abc: 'ab',
+      def: 'bn'
+    },
+    {
+      abc: 'am',
+      def: 'bj'
+    },
+    {
+      abc: 'am',
+      def: 'bj'
+    },
+  ];
+  columns = [
+    {
+      title: '用户名',
+      field: 'abc',
+    },
+    {
+      title: 'def',
+      field: 'def',
+    },
+  ];
   constructor(
     private nzModalService: NzModalService,
     private userService: UserService,

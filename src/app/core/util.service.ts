@@ -8,6 +8,7 @@ import {urls} from './urls.model';
 
 @Injectable()
 export class UtilService {
+  static urls = urls;
   constructor(private http: HttpClient) {
   }
 
@@ -17,12 +18,20 @@ export class UtilService {
    * @returns {string}
    */
   static getUrl(urlKey) {
-    let path = environment.apiPath;
+    const getSafeStr = (str: string) => {
+      if (str.slice(-1) === '/') {
+        return str.slice(0, str.length - 2);
+      } else {
+        return str;
+      }
+    };
+    let path = getSafeStr(environment.apiPath);
     const localStorage_apiPath = localStorage.getItem(apiPathKey);
     if (environment.apiPathChangeable && localStorage && localStorage_apiPath) {
-      environment.apiPath = path = localStorage_apiPath;
+      environment.apiPath = path = getSafeStr(localStorage_apiPath);
     }
-    return environment.isStatic ? (environment.deployPath + '/assets/mock' + urls[urlKey] + '.json') : (path + urls[urlKey] + '/');
+    return environment.isStatic ?
+      (environment.deployPath + '/assets/mock' + UtilService.urls[urlKey] + '.json') : (path + UtilService.urls[urlKey] + '/');
   }
 
   /**
