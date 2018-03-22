@@ -26,9 +26,6 @@
           {{col.title}}
         </span>
     </th>
-    <th *ngIf="tableService.enableNormalEdit || tableService.enableNormalDelete">
-      操作
-    </th>
   </tr>
   </thead>
   <tbody>
@@ -46,14 +43,6 @@
       </ng-container>
       <ng-container *ngIf="!col.formatter && col.field">
         <span>{{data[col.field]}}</span>
-      </ng-container>
-    </td>
-    <td *ngIf="tableService.enableNormalEdit || tableService.enableNormalDelete">
-      <ng-container *ngIf="tableService.enableNormalEdit">
-        <a>编辑</a>
-      </ng-container>
-      <ng-container *ngIf="tableService.enableNormalDelete">
-        <a>删除</a>
       </ng-container>
     </td>
   </tr>

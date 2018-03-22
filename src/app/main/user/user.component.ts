@@ -49,7 +49,6 @@ export class UserComponent implements OnInit {
   ngOnInit() {
   }
   refreshStatus(dataSet) {
-    console.log('refresh', dataSet);
   }
   logout() {
     this.coreService.logout();

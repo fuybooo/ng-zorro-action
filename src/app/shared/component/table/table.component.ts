@@ -17,9 +17,8 @@ export class TableComponent implements OnInit {
   @Input() columns: Column[] = [];
   @Input() dataSet = [];
   @Input() isCheckbox = true;
+  @Input() key = 'id';
   @Input() tableSize = 'middle';
-  @Input() enableNormalEdit = false;
-  @Input() enableNormalDelete = false;
   @Output() refreshStatusChange = new EventEmitter();
   constructor(
     public tableService: TableService
@@ -32,9 +31,8 @@ export class TableComponent implements OnInit {
       columns: this.columns,
       dataSet: this.dataSet,
       isCheckbox: this.isCheckbox,
+      key: this.key,
       tableSize: this.tableSize,
-      enableNormalEdit: this.enableNormalEdit,
-      enableNormalDelete: this.enableNormalDelete,
       refreshStatusChange: this.refreshStatusChange,
     });
   }

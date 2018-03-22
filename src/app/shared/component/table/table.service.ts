@@ -13,6 +13,7 @@ export class TableService {
   total = 1;
   current = 1;
   pageSize = 10;
+  key = 'id';
   sortMap = {};
   url;
   params: any = {
@@ -24,15 +25,11 @@ export class TableService {
   columns: Column[] = [];
   isCheckbox = true;
   tableSize = 'middle';
-  enableNormalEdit = false;
-  enableNormalDelete = false;
-  editCache = {};
   refreshStatusChange;
 
-  constructor(
-    private http: HttpClient,
-    private domSanitizer: DomSanitizer,
-  ) { }
+  constructor(private http: HttpClient,
+              private domSanitizer: DomSanitizer) {
+  }
 
   initTable(props) {
     for (const i in props) {
@@ -77,6 +74,7 @@ export class TableService {
     }
     this.refreshStatus();
   }
+
   search(reset = false) {
     if (reset) {
       this.current = 1;
@@ -89,9 +87,10 @@ export class TableService {
       if (res.code === '200') {
         this.dataSet = res.data.result || [];
         this.total = res.data.total;
-        }
+      }
     });
   }
+
   sort(field, value) {
     this.sortMap[field] = value;
     // 本地数据
@@ -112,9 +111,11 @@ export class TableService {
       this.search(true);
     }
   }
+
   getSecurityHtml(col, data, i) {
     return this.domSanitizer.bypassSecurityTrustHtml(col.formatter(data[col.field], data, i));
   }
+
   getTdStyle(col) {
     if (col.width) {
       if (typeof col.width === 'number') {

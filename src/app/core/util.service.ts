@@ -127,14 +127,14 @@ export class UtilService {
   static isEmptyObject(object) {
     let hasPro = false;
     if (object && typeof object === 'object') {
-      for (const i in object) {
-        if (object.hasOwnProperty(i)) {
-          hasPro = true;
-          break;
-        }
-      }
+      // for (const i in object) {
+      //   if (object.hasOwnProperty(i)) {
+      //     hasPro = true;
+      //     break;
+      //   }
+      // }
       // 另一种方案
-      // hasPro = JSON.stringify(object) !== '{}';
+      hasPro = JSON.stringify(object) !== '{}';
     }
     return !hasPro;
   }
