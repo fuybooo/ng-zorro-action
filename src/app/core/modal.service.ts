@@ -7,7 +7,7 @@ import {NzModalService} from 'ng-zorro-antd';
  */
 @Injectable()
 export class ModalService {
-  public modalCount = 2000;
+  static modalCount = 2802;
   option = {
     okText: '确定',
     cancelText: '取消',

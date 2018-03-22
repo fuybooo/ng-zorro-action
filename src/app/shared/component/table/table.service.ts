@@ -24,6 +24,10 @@ export class TableService {
   columns: Column[] = [];
   isCheckbox = true;
   tableSize = 'middle';
+  enableNormalEdit = false;
+  enableNormalDelete = false;
+  editCache = {};
+  refreshStatusChange;
 
   constructor(
     private http: HttpClient,
@@ -58,6 +62,9 @@ export class TableService {
     this.allChecked = allChecked;
     // 非全选且非全不选,即有部分项被选中
     this.indeterminate = (!allChecked) && (!allUnChecked);
+    if (this.refreshStatusChange) {
+      this.refreshStatusChange.emit(this.dataSet);
+    }
   }
 
   checkAll(value) {

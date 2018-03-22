@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Column} from './table.model';
 import {TableService} from './table.service';
 
@@ -18,6 +18,9 @@ export class TableComponent implements OnInit {
   @Input() dataSet = [];
   @Input() isCheckbox = true;
   @Input() tableSize = 'middle';
+  @Input() enableNormalEdit = false;
+  @Input() enableNormalDelete = false;
+  @Output() refreshStatusChange = new EventEmitter();
   constructor(
     public tableService: TableService
   ) {}
@@ -30,6 +33,9 @@ export class TableComponent implements OnInit {
       dataSet: this.dataSet,
       isCheckbox: this.isCheckbox,
       tableSize: this.tableSize,
+      enableNormalEdit: this.enableNormalEdit,
+      enableNormalDelete: this.enableNormalDelete,
+      refreshStatusChange: this.refreshStatusChange,
     });
   }
 

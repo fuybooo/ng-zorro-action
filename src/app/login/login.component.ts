@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoginService} from './login.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {MessageService} from '../core/message.service';
+import {NzMessageService} from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private router: Router,
-              private messageService: MessageService,
+              private messageService: NzMessageService,
               private loginService: LoginService) {
   }
 

@@ -2,4 +2,7 @@
 <app-table
   [dataSet]="dataSet"
   [columns]="columns"
+  [enableNormalEdit]="true"
+  [enableNormalDelete]="true"
+  (refreshStatusChange)="refreshStatus($event)"
 ></app-table>

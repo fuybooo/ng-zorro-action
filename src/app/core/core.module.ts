@@ -6,7 +6,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgZorroAntdModule, NZ_MESSAGE_CONFIG} from 'ng-zorro-antd';
 import {HttpInterceptorService} from './http-interceptor.service';
 import {CoreService} from './core.service';
-import {MessageService} from './message.service';
 import {ModalService} from './modal.service';
 import {UtilService} from './util.service';
 import {UserService} from '../main/user/user.service';
@@ -30,7 +29,6 @@ import {AuthGuardService} from '../shared/guard/auth-guard.service';
     {provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true},
     // 必要的全局服务
     CoreService,
-    MessageService,
     ModalService,
     UtilService,
     UserService,

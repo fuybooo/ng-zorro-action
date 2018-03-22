@@ -121,6 +121,23 @@ export class UtilService {
       }
     };
   }
+  /**
+   * 判断是否为空对象即 {}
+   */
+  static isEmptyObject(object) {
+    let hasPro = false;
+    if (object && typeof object === 'object') {
+      for (const i in object) {
+        if (object.hasOwnProperty(i)) {
+          hasPro = true;
+          break;
+        }
+      }
+      // 另一种方案
+      // hasPro = JSON.stringify(object) !== '{}';
+    }
+    return !hasPro;
+  }
 
   /**
    * 远程验证表单中的值是否与数据库中的重复
@@ -152,4 +169,5 @@ export class UtilService {
       });
     };
   }
+
 }

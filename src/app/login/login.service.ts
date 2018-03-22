@@ -1,15 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {CoreService} from '../core/core.service';
-import {MessageService} from '../core/message.service';
 import {loginInfoKey} from '../shared/shared.model';
 import {UtilService} from '../core/util.service';
 
 @Injectable()
 export class LoginService {
   constructor(private http: HttpClient,
-              private coreService: CoreService,
-              private messageService: MessageService) {
+              private coreService: CoreService) {
   }
 
   static saveLoginInfo(data) {
