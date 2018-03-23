@@ -1,3 +1,4 @@
 export const urls = {
-  login: '/login'
+  login: '/login',
+  getDeviceList: '/getDeviceList',
 };

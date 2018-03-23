@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  isStatic: true,
+  isStatic: false,
   apiPath: 'http://test.quarkdata.cn',
   apiPathChangeable: true,
   deployPath: '',

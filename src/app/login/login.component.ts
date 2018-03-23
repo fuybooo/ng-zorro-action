@@ -3,6 +3,7 @@ import {LoginService} from './login.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {NzMessageService} from 'ng-zorro-antd';
+import {HttpRes} from '../shared/shared.model';
 
 @Component({
   selector: 'app-login',
@@ -27,15 +28,15 @@ export class LoginComponent implements OnInit {
     });
   }
   login() {
-    // this.loginService.login({
-    //   username: this.form.controls.username.value,
-    //   password: this.form.controls.password.value,
-    //   method: 'post'
-    // }).subscribe((res: HttpRes) => {
-    LoginService.saveLoginInfo({
-      username: 'fuybooo'
+    this.loginService.login({
+      username: 'admin',
+      password: 'adminA',
+      method: 'post'
+    }).subscribe((res: HttpRes) => {
+      LoginService.saveLoginInfo({
+        username: 'fuybooo'
+      });
+      this.router.navigate(['/main']);
     });
-    this.router.navigate(['/main']);
-    // });
   }
 }

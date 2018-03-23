@@ -12,6 +12,10 @@ export const mainRoutes: Routes = [
         path: '',
         loadChildren: 'app/main/user/user.module#UserModule'
       },
+      {
+        path: 'device',
+        loadChildren: 'app/main/device/device.module#DeviceModule'
+      },
     ]
   },
 ];

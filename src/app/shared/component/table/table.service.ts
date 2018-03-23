@@ -82,7 +82,7 @@ export class TableService {
     this.loading = true;
     this.params.pageNumber = this.current;
     this.params.pageSize = this.pageSize;
-    this.http.get(UtilService.urls[this.url], UtilService.getWholeParams(this.params)).subscribe((res: any) => {
+    this.http.get(UtilService.getUrl([this.url]), UtilService.getWholeParams(this.params)).subscribe((res: any) => {
       this.loading = false;
       if (res.code === '200') {
         this.dataSet = res.data.result || [];

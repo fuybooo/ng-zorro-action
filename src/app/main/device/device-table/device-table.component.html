@@ -1,0 +1,54 @@
+<nz-table #nzTable
+          nzShowSizeChanger
+          [nzFrontPagination]="false"
+          [nzData]="tableService.dataSet"
+          [nzLoading]="tableService.loading"
+          [nzTotal]="tableService.total"
+          [(nzPageIndex)]="tableService.current"
+          [(nzPageSize)]="tableService.pageSize"
+          (nzPageIndexChange)="tableService.search()"
+          (nzPageSizeChange)="tableService.search(true)"
+          [nzSize]="tableService.tableSize"
+>
+  <thead
+    (nzSortChange)="tableService.sort($event)"
+    nzSingleSort
+  >
+  <tr>
+    <th
+      *ngIf="tableService.isCheckbox"
+      nzShowCheckbox
+      [(nzChecked)]="tableService.allChecked"
+      [nzIndeterminate]="tableService.indeterminate"
+      (nzCheckedChange)=" tableService.checkAll($event)"></th>
+    <th *ngFor="let col of tableService.columns" [nzShowSort]="col.sortable" [nzSortKey]="col.field">
+        <span>
+          {{col.title}}
+        </span>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of nzTable.data; index as i">
+    <!--控制checkbox的显示-->
+    <td *ngIf="tableService.isCheckbox"
+        nzShowCheckbox
+        [(nzChecked)]="data.checked"
+        (nzCheckedChange)="tableService.refreshStatus($event)"></td>
+    <!--控制每一个cell的显示-->
+    <td *ngFor="let col of columns"
+        [ngStyle]="tableService.getTdStyle(col)">
+      <ng-container *ngIf="col.formatter">
+        <span [innerHTML]="tableService.getSecurityHtml(col, data, i)"></span>
+      </ng-container>
+      <ng-container *ngIf="!col.formatter && col.field">
+        <span>{{data[col.field]}}</span>
+      </ng-container>
+      <ng-container *ngIf="col.isOperate">
+        <a (click)="edit(data)">编辑</a>
+        <a (click)="del(data)">删除</a>
+      </ng-container>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

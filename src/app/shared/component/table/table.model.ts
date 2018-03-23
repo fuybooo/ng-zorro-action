@@ -9,5 +9,4 @@ export interface Column {
   searchable?: boolean;
   isOrder?: boolean;
   isOperate?: boolean;
-  event?: any;
 }
