@@ -1,0 +1,85 @@
+@import "../../assets/less/vars";
+.logo-wrap {
+  width: 200px;
+  height: 65px;
+  background-color: @gray-3;
+  position: relative;
+}
+.logo {
+  position: absolute;
+  width: 170px;
+  height: calc(170 / 200 * 65px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: 100%;
+}
+.logo.logo-is-collapsed {
+  width: 200px;
+  height: 65px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ant-layout-sider-collapsed .nav-text {
+  display: none;
+}
+
+.ant-layout-sider-collapsed .ant-menu-submenu-title:after {
+  display: none;
+}
+
+.ant-layout-sider-collapsed .anticon {
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.trigger:hover {
+  color: #108ee9;
+}
+.primary-title {
+  font-size: 20px;
+  color: #222;
+  padding-left: 50px;
+}
+.main-content {
+  padding: 24px;
+  background-color: #fff;
+  overflow: auto;
+}
+@media screen and (max-height: 534px) {
+  .main-content {
+    height: 400px;
+  }
+}
+@media screen and (min-height: 534px) {
+  .main-content {
+    height: e("calc(100vh - 134px)");
+  }
+}
+.main-sider .ant-menu-item{
+  font-size: 18px!important;
+}
+.menu-list {
+  height: e("calc(100vh - 64px)");
+}
+.main-header {
+  background-color: #fff!important;
+  padding: 0!important;
+  z-index: 2;
+}
+.ant-layout-sider, .ant-menu, .ant-layout, .ant-layout-footer {
+  background-color: @gray-3;
+}
+.ant-menu-inline {
+  border: none;
+}
