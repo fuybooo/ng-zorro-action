@@ -1,1 +1,53 @@
-<button type="button" nz-button [nzType]="'primary'" (click)="login()">登录</button>
+<div class="login-page">
+  <div nz-row>
+    <div nz-col
+         [nzXs]="{span: 22, offset: 1}"
+         [nzSm]="{span: 18, offset: 3}"
+         [nzMd]="{span: 16, offset: 4}"
+         [nzLg]="{span: 14, offset: 5}"
+         [nzXl]="{span: 12, offset: 6}"
+         [nzXXl]="{span: 10, offset: 7}"
+    >
+      <div class="login-box">
+        <div nz-row class="login-header">
+          <div nz-col>
+            <div class="login-logo tac">
+              <i class="anticon anticon-ant-design"></i><span class="login-title ml20">管理系统</span>
+            </div>
+          </div>
+        </div>
+        <div class="login-body">
+          <form nz-form [formGroup]="form" class="login-form">
+            <nz-form-item>
+              <nz-form-control>
+                <nz-input-group nzPrefixIcon="anticon anticon-user">
+                  <input type="text" nz-input formControlName="username" placeholder="username">
+                </nz-input-group>
+                <nz-form-explain *ngIf="form.get('username').dirty && form.get('username').errors">Please input your username!</nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <nz-input-group nzPrefixIcon="anticon anticon-lock">
+                  <input type="password" nz-input formControlName="password" placeholder="Password">
+                </nz-input-group>
+                <nz-form-explain *ngIf="form.get('password').dirty && form.get('password').errors">Please input your Password!</nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <label nz-checkbox formControlName="remember">
+                  <span>Remember me</span>
+                </label>
+                <a class="fr">Forgot password</a>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+        </div>
+        <div class="login-footer">
+          <button class="w" type="button" nz-button [nzType]="'primary'" (click)="login()">登录</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

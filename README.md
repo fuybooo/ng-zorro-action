@@ -81,4 +81,9 @@
     ├── tsconfig.json 配置文件
     ├── tslint.json 格式规范定义文件
     └── yarn.lock
+    
+## 2018-03-24
+  1. 引入基本样式，编写登录洁面逻辑
+  2. 使用jquery操作cookie保存账户信息到浏览器上。
+
 

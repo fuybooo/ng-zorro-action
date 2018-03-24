@@ -1,0 +1,32 @@
+@import "../../assets/less/vars.less";
+.login-page {
+  width: 100%;
+  height: 100%;
+  background-color: @magenta-3;
+}
+.login-box {
+  margin-top: 100px;
+  border: 1px solid @gray-1;
+  background-color: @gray-1;
+  padding: 20px 30px 60px 30px;
+  border-radius: @border-radius;
+  box-shadow: 0 0 30px @red-9;
+}
+@media screen and (min-height: 335px) {
+  .login-box {
+    margin-top: e("calc((100vh - 335px) / 2)"); // 在less中使用calc时需要注意
+  }
+}
+@media screen and (max-height: 335px) {
+  .login-box {
+    margin-top: 20px;
+  }
+}
+.login-logo {
+  font-size: 2em;
+  margin-bottom: 30px;
+  i {
+    color: @purple-7;
+  }
+}
+
