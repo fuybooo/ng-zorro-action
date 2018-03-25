@@ -45,7 +45,7 @@
     │   │   │   ├── main.component.html
     │   │   │   ├── main.component.less
     │   │   │   ├── main.component.ts
-    │   │   │   ├── main.module.ts
+    │   │   │   ├── component.module.ts
     │   │   │   └── user
     │   │   │       ├── user-route.ts
     │   │   │       ├── user.component.html

@@ -1,40 +1,58 @@
-<nz-layout>
-  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" class="main-sider">
-    <div class="logo-wrap">
-      <!--{{mainName}}-->
-      <div class="logo" [class.logo-is-collapsed]="isImgCollapsed"></div>
-    </div>
-    <ul nz-menu class="menu-list" [nzMode]="isCollapsed?'vertical':'inline'">
-      <li nz-menu-item *ngFor="let item of navList" [nzSelected]="item.isActive" (click)="onClickItem(item)">
-        <span><i class="anticon" [ngClass]="item.iconCls"></i><span class="nav-text">{{item.label}}</span></span>
-      </li>
-    </ul>
-  </nz-sider>
+<div>
   <nz-layout>
-    <nz-header class="main-header">
-      <div nz-row>
-        <div nz-col [nzSpan]="12">
-          <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="switchSide()"></i>
-          <span class="primary-title">任务管理系统</span>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" class="main-sider">
+      <div class="logo-wrap">
+        <!--{{mainName}}-->
+        <div class="logo">
+          <i class="anticon anticon-github"></i>
         </div>
-        <div nz-col [nzSpan]="12" class="tar">
+      </div>
+      <ul nz-menu class="menu-list" [nzMode]="isCollapsed?'vertical':'inline'">
+        <ng-container *ngFor="let item of navList">
+          <li *ngIf="item.children" nz-submenu>
+            <span title><i class="anticon" [ngClass]="item.iconCls"></i><span class="nav-text">{{item.label}}</span></span>
+            <ul>
+              <!--暂时只支持二级菜单，可以根据需要增加菜单级数-->
+              <ng-container *ngFor="let _item of item.children">
+                <li *ngIf="!_item.children" nz-menu-item [nzSelected]="_item.isActive" (click)="onClickItem(_item)">
+                  <span><i class="anticon" [ngClass]="_item.iconCls"></i><span class="nav-text">{{_item.label}}</span></span>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
+          <li *ngIf="!item.children" nz-menu-item [nzSelected]="item.isActive" (click)="onClickItem(item)">
+            <span><i class="anticon" [ngClass]="item.iconCls"></i><span class="nav-text">{{item.label}}</span></span>
+          </li>
+        </ng-container>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header class="main-header">
+        <div nz-row>
+          <div nz-col [nzSpan]="12">
+            <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed"
+               [class.anticon-menu-unfold]="isCollapsed" (click)="switchSide()"></i>
+            <span class="primary-title">{{projectName}}</span>
+          </div>
+          <div nz-col [nzSpan]="12" class="tar">
           <span>
-            <i class="anticon anticon-user mr5"></i>{{currentUser?.displayname}}
+            <i class="anticon anticon-user mr5"></i>fuybooo
           </span>
-          <a class="pri50i pl40i" (click)="logout()">
-            <i class="anticon anticon-logout mr5"></i>退出
-          </a>
+            <a class="pri50i pl40i" (click)="logout()">
+              <i class="anticon anticon-logout mr5"></i>退出
+            </a>
+          </div>
         </div>
-      </div>
-    </nz-header>
-    <nz-content class="m016i">
-      <nz-breadcrumb class="m12_0i">
-        <nz-breadcrumb-item>{{currentItem?.label}}</nz-breadcrumb-item>
-      </nz-breadcrumb>
-      <div class="main-content">
-        <router-outlet></router-outlet>
-      </div>
-    </nz-content>
-    <nz-footer class="tac">Design ©2018</nz-footer>
+      </nz-header>
+      <nz-content class="">
+        <nz-breadcrumb class="m12_0i pl10">
+          <nz-breadcrumb-item *ngFor="let bread of breadcrumbList">{{bread?.label}}</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <div class="main-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+      <nz-footer class="tac">Design ©2018</nz-footer>
+    </nz-layout>
   </nz-layout>
-</nz-layout>
+</div>

@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CoreService} from './core/core.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent {
-  size = '2';
-  isLoading = false;
-  loading = () => {
-    this.isLoading = true;
-    setTimeout(() => this.isLoading = false, 1000);
+export class AppComponent implements OnInit {
+  constructor(private coreService: CoreService) {}
+  ngOnInit() {
+    this.coreService.watchRoute();
   }
 }
