@@ -10,10 +10,7 @@
           (nzPageSizeChange)="tableService.search(true)"
           [nzSize]="tableService.tableSize"
 >
-  <thead
-    (nzSortChange)="tableService.sort($event)"
-    nzSingleSort
-  >
+  <thead>
   <tr>
     <th
       *ngIf="tableService.isCheckbox"

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NzModalService} from 'ng-zorro-antd';
 import {UserService} from './user.service';
-import {ModalService} from '../../core/modal.service';
 import {Router} from '@angular/router';
 import {CoreService} from '../../core/core.service';
 
