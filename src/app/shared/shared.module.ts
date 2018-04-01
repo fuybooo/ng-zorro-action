@@ -5,6 +5,7 @@ import {NgZorroAntdModule} from 'ng-zorro-antd';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ButtonClickDirective} from './directive/button-click.directive';
+import { ScrollbarDirective } from './directive/scrollbar.directive';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import {ButtonClickDirective} from './directive/button-click.directive';
   declarations: [
     TableComponent,
     ButtonClickDirective,
+    ScrollbarDirective,
   ],
   exports: [
     // 官方模块
@@ -30,6 +32,8 @@ import {ButtonClickDirective} from './directive/button-click.directive';
     NgZorroAntdModule,
     // 本地
     TableComponent,
+    ButtonClickDirective,
+    ScrollbarDirective
   ]
 })
 export class SharedModule { }

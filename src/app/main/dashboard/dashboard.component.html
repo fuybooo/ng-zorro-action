@@ -1,3 +1,4 @@
-<p>
-  dashboard works!
-</p>
+<div *ngIf="show" style="max-height: 300px;border: 1px solid #000;" appScrollbar>
+  <div style="height: 400px"></div>
+</div>
+<button nz-button nzType="primary" (click)="show = !show">测试</button>

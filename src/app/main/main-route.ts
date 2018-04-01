@@ -28,6 +28,10 @@ export const mainRoutes: Routes = [
         path: 'work',
         loadChildren: 'app/main/work/work.module#WorkModule'
       },
+      {
+        path: 'mall',
+        loadChildren: 'app/main/mall/mall.module#MallModule'
+      },
     ]
   },
 ];

@@ -23,7 +23,9 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/jquery.cookie/jquery.cookie.js"
+        "../node_modules/jquery.cookie/jquery.cookie.js",
+        "assets/vendor/jquery.mCustomScrollbar/jquery.mousewheel.min.js",
+        "assets/vendor/jquery.mCustomScrollbar/jquery.mCustomScrollbar.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

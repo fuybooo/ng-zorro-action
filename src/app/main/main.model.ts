@@ -27,6 +27,12 @@ export const navList: Nav[] = [
     iconCls: {'anticon-team': true},
   },
   {
+    label: '商城',
+    code: 'mall',
+    route: '/main/mall',
+    iconCls: {'anticon-shop': true},
+  },
+  {
     label: '组件',
     code: 'component',
     route: '/main/example',
