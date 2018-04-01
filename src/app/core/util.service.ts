@@ -6,6 +6,11 @@ import {environment} from '../../environments/environment';
 import {apiPathKey} from '../shared/shared.model';
 import {urls} from './urls.model';
 
+/**'
+ * 工具接口
+ * ==
+ * 实现全局公共的方法
+ */
 @Injectable()
 export class UtilService {
   static urls = urls;

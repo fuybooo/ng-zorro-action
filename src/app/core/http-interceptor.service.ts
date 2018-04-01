@@ -1,12 +1,17 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
-import {HttpErrorResponse, HttpEvent, HttpHandler, HttpRequest, HttpResponse} from '@angular/common/http';
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {environment} from '../../environments/environment';
 import 'rxjs/add/operator/do';
 
+/**
+ * 请求监听拦截器
+ * ==
+ * 监听所有请求，进行请求成功失败的统一处理
+ */
 @Injectable()
-export class HttpInterceptorService {
+export class HttpInterceptorService implements HttpInterceptor {
 
   constructor(private router: Router) {
   }

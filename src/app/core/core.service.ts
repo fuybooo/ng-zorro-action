@@ -14,6 +14,13 @@ export class CoreService {
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
   ) { }
+
+  /**
+   * 对路由进行监听
+   * ==
+   * 1. 改变页面对title
+   * 2. 路由改变后可以订阅事件，做相应对改变
+   */
   watchRoute() {
     (((((this.router.events
       .filter(event => event instanceof NavigationEnd) as Observable<any>)
