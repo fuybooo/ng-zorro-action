@@ -30,11 +30,11 @@ export class LoginComponent implements OnInit {
     });
   }
   login() {
-    this.loginService.login({
-      username: 'admin',
-      password: 'adminA',
-      method: 'post'
-    }).subscribe((res: HttpRes) => {
+    // this.loginService.login({
+    //   username: 'admin',
+    //   password: 'adminA',
+    //   method: 'post'
+    // }).subscribe((res: HttpRes) => {
       LoginService.saveLoginInfo({
         username: 'fuybooo'
       });
@@ -44,6 +44,6 @@ export class LoginComponent implements OnInit {
       $.cookie('permission', '1', cookieConfig);
       $.cookie('remember', this.form.get('remember').value, cookieConfig);
       this.router.navigate(['/main']);
-    });
+    // });
   }
 }
